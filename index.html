@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My World 🌎</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="particles"></div>
+
+  <!-- PIN LOCK -->
+  <section id="lockScreen" class="screen active">
+    <div class="glass lock-card">
+      <div class="lock-icon">🔐</div>
+      <p class="eyebrow">PRIVATE SPACE</p>
+      <h1>Welcome to My World</h1>
+      <p class="subtext">Enter your secret 4-digit PIN</p>
+
+      <div id="pinDots" class="pin-dots">
+        <span></span><span></span><span></span><span></span>
+      </div>
+
+      <div class="keypad">
+        <button class="key" data-key="1">1</button>
+        <button class="key" data-key="2">2</button>
+        <button class="key" data-key="3">3</button>
+        <button class="key" data-key="4">4</button>
+        <button class="key" data-key="5">5</button>
+        <button class="key" data-key="6">6</button>
+        <button class="key" data-key="7">7</button>
+        <button class="key" data-key="8">8</button>
+        <button class="key" data-key="9">9</button>
+        <button class="key special" data-key="clear">C</button>
+        <button class="key" data-key="0">0</button>
+        <button class="key special" data-key="back">⌫</button>
+      </div>
+
+      <p id="pinMessage" class="pin-message">Hint: make it something memorable ✨</p>
+    </div>
+  </section>
+
+  <!-- WELCOME -->
+  <section id="welcomeScreen" class="screen">
+    <div class="welcome-content">
+      <div class="orbit">✦</div>
+      <p class="eyebrow">ACCESS GRANTED</p>
+      <h1>WELCOME TO<br><span>MY WORLD</span> 🌎</h1>
+      <p>Every click opens a little piece of this world.</p>
+      <button id="enterWorld" class="primary-btn">Enter My World <span>→</span></button>
+    </div>
+  </section>
+
+  <!-- MAIN WORLD -->
+  <section id="worldScreen" class="screen world-screen">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">MY PERSONAL SPACE</p>
+        <h2>Hello, welcome back 👋</h2>
+      </div>
+      <div class="top-actions">
+        <button id="musicToggle" class="icon-btn" title="Music">🎵</button>
+        <button id="lockAgain" class="icon-btn" title="Lock">🔒</button>
+      </div>
+    </header>
+
+    <main class="dashboard">
+      <div class="hero glass">
+        <div>
+          <p class="eyebrow">TODAY'S VIBE</p>
+          <h1>Make your own little universe. ✨</h1>
+          <p>Explore the cards below. Everything is interactive.</p>
+        </div>
+        <button class="surprise-btn" id="surpriseBtn">🎁 Surprise Me</button>
+      </div>
+
+      <div class="feature-grid">
+        <button class="feature-card glass" data-panel="musicPanel">
+          <span class="feature-icon">🎵</span>
+          <strong>Music World</strong>
+          <small>Play your favorite songs</small>
+        </button>
+        <button class="feature-card glass" data-panel="memoriesPanel">
+          <span class="feature-icon">📸</span>
+          <strong>Memories</strong>
+          <small>Your favorite moments</small>
+        </button>
+        <button class="feature-card glass" data-panel="messagesPanel">
+          <span class="feature-icon">💌</span>
+          <strong>Messages</strong>
+          <small>Sweet notes and thoughts</small>
+        </button>
+        <button class="feature-card glass" data-panel="funPanel">
+          <span class="feature-icon">🎮</span>
+          <strong>Fun Zone</strong>
+          <small>Mini games and challenges</small>
+        </button>
+        <button class="feature-card glass" data-panel="quotesPanel">
+          <span class="feature-icon">🌟</span>
+          <strong>Quotes</strong>
+          <small>Get a random quote</small>
+        </button>
+        <button class="feature-card glass" data-panel="aboutPanel">
+          <span class="feature-icon">👤</span>
+          <strong>About Me</strong>
+          <small>A little introduction</small>
+        </button>
+      </div>
+
+      <div class="mini-player glass">
+        <div class="album">🎧</div>
+        <div class="track-info">
+          <strong id="trackName">My World Vibe</strong>
+          <small id="trackStatus">Use the Music World to add your audio files</small>
+        </div>
+        <button id="miniPlay" class="play-btn">▶</button>
+        <input id="volume" type="range" min="0" max="1" step="0.01" value="0.7">
+      </div>
+    </main>
+  </section>
+
+  <!-- MODAL -->
+  <div id="modal" class="modal">
+    <div class="modal-box glass">
+      <button id="closeModal" class="close-btn">×</button>
+
+      <div id="musicPanel" class="panel">
+        <p class="eyebrow">MUSIC WORLD</p>
+        <h2>🎵 Your Music</h2>
+        <p>Add your own MP3 files to the <b>music</b> folder and list them in <code>script.js</code>.</p>
+        <div id="playlist" class="playlist"></div>
+        <audio id="audioPlayer" controls></audio>
+      </div>
+
+      <div id="memoriesPanel" class="panel">
+        <p class="eyebrow">MEMORIES</p>
+        <h2>📸 Favorite Moments</h2>
+        <div class="memory-grid">
+          <div class="memory"><span>🌅</span><b>Beautiful Days</b><small>Add your photo here</small></div>
+          <div class="memory"><span>🌃</span><b>Night Vibes</b><small>Add your photo here</small></div>
+          <div class="memory"><span>🌻</span><b>Happy Moments</b><small>Add your photo here</small></div>
+          <div class="memory"><span>🚀</span><b>New Adventures</b><small>Add your photo here</small></div>
+        </div>
+      </div>
+
+      <div id="messagesPanel" class="panel">
+        <p class="eyebrow">MESSAGES</p>
+        <h2>💌 Little Messages</h2>
+        <div class="message-card">“Keep smiling. Your world becomes brighter when you do.” 💖</div>
+        <div class="message-card">“You don't need a perfect day to make a beautiful memory.” ✨</div>
+        <div class="message-card">“Small steps can take you to amazing places.” 🌎</div>
+      </div>
+
+      <div id="funPanel" class="panel">
+        <p class="eyebrow">FUN ZONE</p>
+        <h2>🎮 Guess the Number</h2>
+        <p>I'm thinking of a number from 1 to 5. Can you guess it?</p>
+        <div class="guess-row">
+          <button class="guess" data-number="1">1</button>
+          <button class="guess" data-number="2">2</button>
+          <button class="guess" data-number="3">3</button>
+          <button class="guess" data-number="4">4</button>
+          <button class="guess" data-number="5">5</button>
+        </div>
+        <p id="gameResult" class="game-result">Choose a number 👀</p>
+      </div>
+
+      <div id="quotesPanel" class="panel">
+        <p class="eyebrow">QUOTES</p>
+        <h2>🌟 Random Quote</h2>
+        <div id="quoteBox" class="quote-box">Click the button for a little inspiration.</div>
+        <button id="newQuote" class="primary-btn">New Quote ✨</button>
+      </div>
+
+      <div id="aboutPanel" class="panel">
+        <p class="eyebrow">ABOUT</p>
+        <h2>👤 About Me</h2>
+        <p class="about-text">
+          Hi! This is my little corner of the internet. 🌎<br><br>
+          Replace this text with your own introduction, hobbies, favorite things,
+          goals, or anything you want visitors to know.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>
