@@ -3,7 +3,7 @@
 // ===============================
 
 // CHANGE YOUR PIN HERE
-const SECRET_PIN = "1234";
+const SECRET_PIN = "8431";
 
 // Add your own music files inside the "music" folder,
 // then add their paths here.
